@@ -1,6 +1,6 @@
 'use client'
 
-import { useSectionInView } from "@/hooks/useSectionInView";
+import { useSectionInView } from "@/utils/hooks/useSectionInView";
 import Image from "next/image";
 
 export const HomePage = () => {

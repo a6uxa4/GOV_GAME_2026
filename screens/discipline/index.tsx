@@ -1,6 +1,6 @@
 'use client'
 
-import { useSectionInView } from "@/hooks/useSectionInView";
+import { useSectionInView } from "@/utils/hooks/useSectionInView";
 import { CSCard } from "@/components/card/CS";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";

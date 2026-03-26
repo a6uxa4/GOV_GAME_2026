@@ -1,6 +1,6 @@
 'use client'
 
-import { useSectionInView } from '@/hooks/useSectionInView';
+import { useSectionInView } from '@/utils/hooks/useSectionInView';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import { useRef } from 'react';

@@ -5,7 +5,7 @@ import { AboutPage } from "@/screens/about";
 import { BroadcastsPage } from "@/screens/broadcasts";
 import { FormatPage } from "@/screens/format";
 import { SponsorsPage } from "@/screens/sponsors";
-import { HashScrollHandler } from "@/components/HashScrollHandler";
+import { HashScrollHandler } from "@/utils/hooks/useHashScrollHandler";
 
 export default function Home() {
   return (
