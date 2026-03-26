@@ -2,6 +2,7 @@
 
 import { useActiveSectionContext } from "@/providers/ActiveSection";
 import { NAV_LINKS } from "@/utils/constants";
+import { SectionName } from "@/common/useSection.common";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,6 +16,27 @@ export const Header = () => {
     const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
     const currentLocale = pathname?.split("/")[1] === "en" ? "en" : "ru";
     const [isLocaleMenuOpen, setIsLocaleMenuOpen] = useState(false);
+
+    const handleNavClick = (sectionName: SectionName, hash: string, clickTimestamp: number) => {
+        setActiveSection(sectionName);
+        setTimeOfLastClick(clickTimestamp);
+
+        const normalizedHash = hash.replace("/#", "#");
+        const isHomeRoute = pathname === `/${currentLocale}` || pathname === `/${currentLocale}/`;
+
+        if (isHomeRoute) {
+            const targetId = normalizedHash.slice(1);
+            const target = document.getElementById(targetId);
+
+            if (target) {
+                window.history.replaceState(null, "", `/${currentLocale}${normalizedHash}`);
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+                return;
+            }
+        }
+
+        replace(`/${currentLocale}${normalizedHash}`);
+    };
 
     const changeLocale = (nextLocale: "en" | "ru") => {
         const nextPath = pathname
@@ -41,10 +63,8 @@ export const Header = () => {
             <nav className="flex items-center text-white/60">
                 {NAV_LINKS.map((link, index) => (
                     <div
-                        onClick={() => {
-                            setActiveSection(link.name);
-                            setTimeOfLastClick(Date.now());
-                            replace(`/${currentLocale}${link.hash.replace("/", "")}`);
+                        onClick={(event) => {
+                            handleNavClick(link.name, link.hash, event.timeStamp);
                         }}
                         key={link.name} className="group flex items-center cursor-pointer">
                         {index !== 0 && (
