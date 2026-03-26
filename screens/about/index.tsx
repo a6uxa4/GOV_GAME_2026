@@ -15,7 +15,7 @@ export const AboutPage = () => {
     return (
         <section id="about" ref={ref} className="scroll-mt-28 w-full h-[842px] overflow-hidden relative">
             <Image src="/photoAboutBg.png" alt="about" width={1920} height={842} loading="eager" className='w-full h-full' />
-            <Image src="/photoAboutText.png" alt="about" width={1920} height={842} loading="eager" className='absolute top-0 left-[80px] w-auto h-auto' />
+            <Image src="/photoAboutText.png" alt="about" width={1000} height={260} loading="eager" className='absolute top-0 left-[80px] w-auto h-auto' />
             <div ref={contentRef} className='w-full h-full absolute top-0 left-0'></div>
             <motion.div initial={{ x: 900 }} animate={isInView ? { x: 0 } : {}} transition={{ duration: 0.5 }} className='bg-[#00000080] p-6 absolute top-[200px] right-[180px] w-[1000px] rounded-xl backdrop-blur-[6px]'>
                 <h1 className='text-end font-bold text-xl'>
