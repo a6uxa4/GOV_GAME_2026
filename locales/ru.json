@@ -6,5 +6,17 @@
     "about": "О Турнире",
     "broadcasts": "Трансляции",
     "contacts": "Контакты"
+  },
+  "discipline": {
+    "titleCS2": "Counter-Strike 2",
+    "titleDOTA2": "Dota 2",
+    "section1": "Место проведения:",
+    "section2": "Максимальное кол-во команд:",
+    "section3": "Формат:",
+    "section4": "Кол-во прохода в след. этап:",
+    "answer1": "Online, внутриигровое лобби",
+    "answer2": "16 команд ( 4группы )",
+    "answer3": "Round-robin или GSL bo1",
+    "answer4": "Топ 2 команды с каждой группы"
   }
 }

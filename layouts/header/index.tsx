@@ -49,7 +49,7 @@ export const Header = () => {
 
 
     return (
-        <header className="pt-4 fixed top-0 left-[80px] right-[80px] z-50 flex justify-between items-center bg-black">
+        <header className="py-4 fixed top-0 left-[80px] right-[80px] z-50 flex justify-between items-center bg-black">
             <Link href="/" className="block">
                 <Image
                     src="/IconGG.svg"
