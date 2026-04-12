@@ -18,5 +18,8 @@
     "answer2": "16 команд ( 4группы )",
     "answer3": "Round-robin или GSL bo1",
     "answer4": "Топ 2 команды с каждой группы"
+  },
+  "format": {
+    "whoCanParticipate": "Кто может принять участие?"
   }
 }

@@ -10,12 +10,12 @@ import { HashScrollHandler } from "@/utils/hooks/useHashScrollHandler";
 export default function Home() {
   return (
     <main className="flex flex-col items-center px-4">
-      <HashScrollHandler />
+      {/* <HashScrollHandler />
       <HomePage />
       <DisciplinePage />
       <NewsPage />
       <AboutPage />
-      <BroadcastsPage />
+      <BroadcastsPage /> */}
       <FormatPage />
       <SponsorsPage />
     </main>
