@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTranslations } from 'next-intl';
+import { Button } from '@/components/button';
 
 export const CSCard = () => {
     const t = useTranslations("discipline");
@@ -23,9 +24,14 @@ export const CSCard = () => {
                             </span>
                         </p>
                     ))}
+                    <div className='flex gap-4'>
+                        <Button onClick={() => { }} variant='primary' className='mt-4'>Регламент турнира</Button>
+                        <Button onClick={() => { }} variant='secondary' className='mt-4'>Регистрация на турнир</Button>
+                    </div>
+
                 </div>
             </div>
-            <motion.div initial={{ opacity: 0, x: -500 }} animate={{ opacity: 1, x: 80 }} transition={{ duration: 0.5 }} className="scale-150 translate-y-[-80px]">
+            <motion.div initial={{ opacity: 0, x: -500 }} animate={{ opacity: 1, x: 80 }} transition={{ duration: 0.5 }} className="scale-150 translate-y-[-120px]">
                 <Image src="/photoGovGame.svg" alt="govGame" width={750} height={350} style={{ width: "auto", height: "auto" }} loading="eager" />
             </motion.div>
             <motion.div initial={{ y: -500, }} animate={{ y: 0, }} transition={{ duration: 0.3 }} className='translate-x-[225px] z-20'>

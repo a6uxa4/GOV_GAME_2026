@@ -24,6 +24,12 @@ body {
   color: var(--foreground);
 }
 
+/* Снимаем нативное перетаскивание картинок мышью (ghost image) */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
@@ -36,5 +42,18 @@ html {
 @media (max-width: 768px) {
   html {
     scroll-snap-type: none;
+  }
+}
+
+/* About section fog overlay — used with style={{ animation: 'fog ...' }} */
+@keyframes fog {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translate3d(-50%, 0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: translate3d(-50%, -2%, 0) scale(1.04);
   }
 }
