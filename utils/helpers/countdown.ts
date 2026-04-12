@@ -7,8 +7,10 @@ export type CountdownTime = {
     seconds: number;
 };
 
+export type CountdownUnit = 'days' | 'hours' | 'minutes' | 'seconds';
+
 export type CountdownItem = {
-    label: 'days' | 'hours' | 'minutes' | 'seconds';
+    unit: CountdownUnit;
     value: number;
 };
 
@@ -63,9 +65,8 @@ const ZERO_COUNTDOWN: CountdownTime = { days: 0, hours: 0, minutes: 0, seconds: 
 
 export const useCountdownItems = (targetDateString: string): CountdownItem[] => {
     const targetDate = useMemo(() => parseCountdownDate(targetDateString), [targetDateString]);
-    const [countdown, setCountdown] = useState<CountdownTime>(() =>
-        targetDate ? getCountdownTime(targetDate) : ZERO_COUNTDOWN
-    );
+    // Must start at zeros: getCountdownTime uses Date.now() and would mismatch SSR vs client hydration.
+    const [countdown, setCountdown] = useState<CountdownTime>(ZERO_COUNTDOWN);
 
     useEffect(() => {
         if (!targetDate) {
@@ -89,10 +90,10 @@ export const useCountdownItems = (targetDateString: string): CountdownItem[] => 
             const safeCountdown = targetDate ? countdown : ZERO_COUNTDOWN;
 
             return [
-                { label: 'days', value: safeCountdown.days },
-                { label: 'hours', value: safeCountdown.hours },
-                { label: 'minutes', value: safeCountdown.minutes },
-                { label: 'seconds', value: safeCountdown.seconds },
+                { unit: 'days', value: safeCountdown.days },
+                { unit: 'hours', value: safeCountdown.hours },
+                { unit: 'minutes', value: safeCountdown.minutes },
+                { unit: 'seconds', value: safeCountdown.seconds },
             ];
         },
         [countdown, targetDate]
