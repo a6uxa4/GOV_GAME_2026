@@ -20,6 +20,21 @@
     "answer4": "The top two teams from each group"
   },
   "format": {
-    "whoCanParticipate": "Who can participate?"
+    "whoCanParticipate": "Who can participate?",
+    "periodOfConduct": "Period of conduct:",
+    "totalPrizeFund": "Total prize fund:",
+    "participantsRestrictionWhite1": "PARTICIPANTS OF THE TOURNAMENT CAN",
+    "participantsRestrictionWhite2": "BE ONLY",
+    "participantsRestrictionBlue1": "EMPLOYEES",
+    "participantsRestrictionBlue2": "OF IT-DIVISIONS OF THE GOVERNMENT",
+    "eventDateRange": "June 3–14",
+    "eventYear": "2026 year",
+    "schedule": "Schedule",
+    "inTechAndGadgets": "In tech and gadgets",
+    "stagesTitle": "Stages:",
+    "stageGroup": "Group stage",
+    "stagePlayoff": "PLAY-OFF",
+    "stageLanFinal": "LAN final",
+    "datesLabel": "Dates:"
   }
 }

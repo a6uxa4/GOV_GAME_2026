@@ -20,6 +20,21 @@
     "answer4": "Топ 2 команды с каждой группы"
   },
   "format": {
-    "whoCanParticipate": "Кто может принять участие?"
+    "whoCanParticipate": "Кто может принять участие?",
+    "periodOfConduct": "Период проведения:",
+    "totalPrizeFund": "Общая сумма призового фонда:",
+    "participantsRestrictionWhite1": "УЧАСТНИКАМИ ТУРНИРА МОГУТ",
+    "participantsRestrictionWhite2": "БЫТЬ ТОЛЬКО",
+    "participantsRestrictionBlue1": "СОТРУДНИКИ",
+    "participantsRestrictionBlue2": "IT-ПОДРАЗДЕЛЕНИЙ ГОССТРУКТУР",
+    "eventDateRange": "3-14 июня",
+    "eventYear": "2026 года",
+    "schedule": "Расписание",
+    "inTechAndGadgets": "В технике и гаджетах",
+    "stagesTitle": "Этапы:",
+    "stageGroup": "Групповой",
+    "stagePlayoff": "PLAY-OFF",
+    "stageLanFinal": "LAN-финал",
+    "datesLabel": "Даты:"
   }
 }
