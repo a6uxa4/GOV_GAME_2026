@@ -5,7 +5,8 @@
     "news": "Новости",
     "about": "О Турнире",
     "broadcasts": "Трансляции",
-    "contacts": "Контакты"
+    "contacts": "Контакты",
+    "sponsors": "Спонсоры"
   },
   "discipline": {
     "titleCS2": "Counter-Strike 2",
@@ -18,5 +19,19 @@
     "answer2": "16 команд ( 4группы )",
     "answer3": "Round-robin или GSL bo1",
     "answer4": "Топ 2 команды с каждой группы"
+  },
+  "contacts": {
+    "contacts": "Контакты",
+    "locationLabel": "Место проведения:",
+    "locationValue": "Technopark, ул. Максима Горького, 1/2",
+    "mailLabel": "Mail:",
+    "mailValue": "mail@govgames.gov.kg",
+    "phoneLabel": "Телефон:",
+    "phoneValue": "(312)-12 34 56"
+  },
+  "sponsors": {
+    "sponsors": "Спонсоры",
+    "generalSponsor": "Генеральный спонсор игр",
+    "officialPartner": "Официальный партнер игр"
   }
 }
