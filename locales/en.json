@@ -1,11 +1,29 @@
 {
+  "metadata": {
+    "title": "GOV GAMES 2026",
+    "description": "Esports tournament for government IT organizations of Kyrgyzstan"
+  },
   "header": {
     "home": "Home",
     "disciplines": "Disciplines",
     "news": "News",
     "about": "About the Tournament",
     "broadcasts": "Broadcasts",
-    "contacts": "Contacts"
+    "contacts": "Contacts",
+    "sponsors": "Sponsors",
+    "changeLanguage": "Change language",
+    "langEnglish": "English",
+    "langRussian": "Русский"
+  },
+  "footer": {
+    "contacts": "Contacts",
+    "phoneLabel": "Phone number:",
+    "phoneValue": "(312)-12 34 56",
+    "emailLabel": "Email:",
+    "emailLine1": "mail@academy.gov.kg",
+    "emailLine2": "academy@academy.gov.kg",
+    "addressLabel": "Address:",
+    "addressValue": "720040, Bishkek, Academy, 123"
   },
   "discipline": {
     "titleCS2": "Counter-Strike 2",
@@ -44,7 +62,8 @@
     }
   },
   "broadcasts": {
-    "description": "Watch live match broadcasts of both disciplines and follow your favorites on the tournament bracket at the esports tournament for government IT organizations of Kyrgyzstan."
+    "description": "Watch live match broadcasts of both disciplines and follow your favorites on the tournament bracket at the esports tournament for government IT organizations of Kyrgyzstan.",
+    "iframeTitle": "Broadcast"
   },
   "format": {
     "whoCanParticipate": "Who can participate?",
@@ -63,5 +82,32 @@
     "stagePlayoff": "PLAY-OFF",
     "stageLanFinal": "LAN final",
     "datesLabel": "Dates:"
+  },
+  "schedule": {
+    "groupStage": "GROUP STAGE",
+    "playoff": "PLAY-OFF",
+    "thirdPlace": "THIRD PLACE MATCH",
+    "final": "FINAL",
+    "finalDate": "June 14",
+    "timeLabel": "Time:",
+    "groupA": "Group A",
+    "groupB": "Group B",
+    "groupC": "Group C",
+    "groupD": "Group D",
+    "disciplineCS2": "CS2",
+    "disciplineDOTA2": "Dota 2",
+    "june3": "June 3",
+    "june4": "June 4",
+    "june5": "June 5",
+    "june6": "June 6",
+    "june7": "June 7",
+    "june8": "June 8",
+    "june9": "June 9",
+    "june10": "June 10",
+    "june11": "June 11",
+    "june12": "June 12",
+    "game5": "Game 5:",
+    "game6": "Game 6:",
+    "game7": "Game 7:"
   }
 }

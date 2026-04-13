@@ -1,4 +1,8 @@
 {
+  "metadata": {
+    "title": "GOV GAMES 2026",
+    "description": "Киберспортивный турнир среди государственных IT-организаций Кыргызстана"
+  },
   "header": {
     "home": "Главная",
     "disciplines": "Дисциплины",
@@ -6,7 +10,20 @@
     "about": "О Турнире",
     "broadcasts": "Трансляции",
     "contacts": "Контакты",
-    "sponsors": "Спонсоры"
+    "sponsors": "Спонсоры",
+    "changeLanguage": "Сменить язык",
+    "langEnglish": "English",
+    "langRussian": "Русский"
+  },
+  "footer": {
+    "contacts": "Контакты",
+    "phoneLabel": "Номер телефона:",
+    "phoneValue": "(312)-12 34 56",
+    "emailLabel": "Почта:",
+    "emailLine1": "mail@academy.gov.kg",
+    "emailLine2": "academy@academy.gov.kg",
+    "addressLabel": "Адрес:",
+    "addressValue": "720040, г. Бишкек, Академия, 123"
   },
   "discipline": {
     "titleCS2": "Counter-Strike 2",
@@ -45,7 +62,8 @@
     }
   },
   "broadcasts": {
-    "description": "Смотрите прямые трансляции игр по двум дисциплинам, отслеживая по турнирной сетке своих фаворитов на Киберспортивном турнире среди государственных IT-организаций Кыргызстана"
+    "description": "Смотрите прямые трансляции игр по двум дисциплинам, отслеживая по турнирной сетке своих фаворитов на Киберспортивном турнире среди государственных IT-организаций Кыргызстана",
+    "iframeTitle": "Трансляция"
   },
   "format": {
     "whoCanParticipate": "Кто может принять участие?",
@@ -64,5 +82,32 @@
     "stagePlayoff": "PLAY-OFF",
     "stageLanFinal": "LAN-финал",
     "datesLabel": "Даты:"
+  },
+  "schedule": {
+    "groupStage": "ГРУППОВОЙ ЭТАП",
+    "playoff": "PLAY-OFF",
+    "thirdPlace": "ИГРА ЗА ТРЕТЬЕ МЕСТО",
+    "final": "ФИНАЛ",
+    "finalDate": "14 Июня",
+    "timeLabel": "Время:",
+    "groupA": "Группа А",
+    "groupB": "Группа B",
+    "groupC": "Группа C",
+    "groupD": "Группа D",
+    "disciplineCS2": "Дисциплина CS2",
+    "disciplineDOTA2": "Дисциплина DOTA2",
+    "june3": "3 Июня",
+    "june4": "4 Июня",
+    "june5": "5 Июня",
+    "june6": "6 Июня",
+    "june7": "7 Июня",
+    "june8": "8 Июня",
+    "june9": "9 Июня",
+    "june10": "10 Июня",
+    "june11": "11 Июня",
+    "june12": "12 Июня",
+    "game5": "Игра 5:",
+    "game6": "Игра 6:",
+    "game7": "Игра 7:"
   }
 }

@@ -15,6 +15,7 @@ export const Header = () => {
     const { replace } = useRouter();
     const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
     const currentLocale = pathname?.split("/")[1] === "en" ? "en" : "ru";
+    const homeHref = `/${currentLocale}`;
     const [isLocaleMenuOpen, setIsLocaleMenuOpen] = useState(false);
 
     const handleNavClick = (sectionName: SectionName, hash: string, clickTimestamp: number) => {
@@ -22,7 +23,8 @@ export const Header = () => {
         setTimeOfLastClick(clickTimestamp);
 
         const normalizedHash = hash.replace("/#", "#");
-        const isHomeRoute = pathname === `/${currentLocale}` || pathname === `/${currentLocale}/`;
+        const isHomeRoute =
+            pathname === homeHref || pathname === `${homeHref}/`;
 
         if (isHomeRoute) {
             const targetId = normalizedHash.slice(1);
@@ -50,7 +52,7 @@ export const Header = () => {
 
     return (
         <header className="py-4 fixed top-0 left-0 right-0 px-[80px] z-50 flex justify-between items-center bg-black">
-            <Link href="/" className="block">
+            <Link href={homeHref} className="block">
                 <Image
                     src="/IconGG.svg"
                     alt="logo"
@@ -101,10 +103,10 @@ export const Header = () => {
                     <button
                         type="button"
                         onClick={() => setIsLocaleMenuOpen((prev) => !prev)}
-                        aria-label="Change language"
+                        aria-label={t("changeLanguage")}
                         className="flex min-w-28 items-center justify-between gap-3 rounded-xl cursor-pointer border border-white/70 bg-white px-4 py-2 text-sm font-semibold text-black shadow-sm outline-none transition-all duration-300 hover:border-white hover:shadow-md focus-visible:-translate-y-0.5 focus-visible:shadow-lg"
                     >
-                        <span>{currentLocale === "en" ? "English" : "Русский"}</span>
+                        <span>{currentLocale === "en" ? t("langEnglish") : t("langRussian")}</span>
                         <span className={`transition-transform duration-300 ${isLocaleMenuOpen ? "rotate-180" : ""}`}>
                             <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -119,14 +121,14 @@ export const Header = () => {
                             onClick={() => changeLocale("en")}
                             className={`block w-full px-4 py-2 text-left text-sm transition-colors duration-200 hover:bg-white/15 cursor-pointer ${currentLocale === "en" ? "bg-white/10" : ""}`}
                         >
-                            English
+                            {t("langEnglish")}
                         </button>
                         <button
                             type="button"
                             onClick={() => changeLocale("ru")}
                             className={`block w-full px-4 py-2 text-left text-sm transition-colors duration-200 hover:bg-white/15 cursor-pointer ${currentLocale === "ru" ? "bg-white/10" : ""}`}
                         >
-                            Русский
+                            {t("langRussian")}
                         </button>
                     </div>
                 </div>

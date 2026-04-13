@@ -24,7 +24,7 @@ export const BroadcastsPage = () => {
           height="830px"
           className='rounded-[16px] overflow-hidden border border-[#0053EB66]'
           src="https://www.youtube.com/embed/9P9xO4edsmw?autoplay=0"
-          title="Archive"
+          title={t('iframeTitle')}
           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
@@ -48,7 +48,7 @@ export const BroadcastsPage = () => {
               height="175px"
               className='rounded-[16px] overflow-hidden border border-[#0053EB66]'
               src="https://www.youtube.com/embed/9P9xO4edsmw?autoplay=0"
-              title="Archive"
+              title={t('iframeTitle')}
               allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>

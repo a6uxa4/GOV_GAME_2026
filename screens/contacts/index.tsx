@@ -39,7 +39,7 @@ export const ContactsPage = () => {
           text-start
           text-[200px]
           font-bold
-          bg-gradient-to-b from-white/10 via-white/20 to-white/5
+          bg-linear-to-b from-white/10 via-white/20 to-white/5
           bg-clip-text text-transparent
         "
       >
@@ -53,7 +53,7 @@ export const ContactsPage = () => {
           flex w-[85%] flex-col gap-8
           rounded-xl
           border-2 border-solid border-white/50
-          bg-gradient-to-r from-white/10 via-white/20 to-white/30
+          bg-linear-to-r from-white/10 via-white/20 to-white/30
           p-8
         "
       >

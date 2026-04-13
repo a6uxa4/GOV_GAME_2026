@@ -1,51 +1,14 @@
 'use client'
 
-import { useRef } from "react"
+import { useMemo, useRef } from "react"
 import type { MotionValue } from "motion/react"
 import { motion, useScroll, useTransform } from "motion/react"
 import clsx from "clsx"
+import { useTranslations } from "next-intl"
 
 const LINE_H_1 = 300
 const LINE_H_2 = 760
 const LINE_H_3 = 400
-
-// ✅ Исправлено: убрана лишняя вложенность — был массив из одного объекта
-const BALL_POSITIONS_1 = [
-    {
-        value: 0.12, color: { to: "#D1C4E9", from: "#651FFF" }, title: "Группа А", date: "3 Июня", time: "19:00", variant: 1
-    },
-    {
-        value: 0.38, color: { to: "#D1C4E9", from: "#651FFF" }, title: "Группа B", date: "4 Июня", time: "19:00", variant: 1
-    },
-    {
-        value: 0.62, color: { to: "#D1C4E9", from: "#651FFF" }, title: "Группа C", date: "5 Июня", time: "19:00", variant: 1
-    },
-    {
-        value: 0.88, color: { to: "#D1C4E9", from: "#651FFF" }, title: "Группа D", date: "6 Июня", time: "19:00", variant: 1
-    },
-]
-const BALL_POSITIONS_2 = [
-    {
-        value: 0.12, color: { to: "#00E5FF", from: "#0072FF" }, title: 'Дисциплина CS2', date: '7 Июня', times: ['13:00', "15:00", "17:00", "19:00"], variant: 2
-    },
-    {
-        value: 0.38, color: { to: "#00E5FF", from: "#0072FF" }, title: 'Дисциплина DOTA2', date: '8 Июня', times: ['13:00', "15:00", "17:00", "19:00"], variant: 2
-    },
-    {
-        value: 0.62, color: { to: "#00E5FF", from: "#0072FF" }, title: 'Дисциплина CS2', date: '9 Июня', variant: 3, games: [{ value: 'Game 5:', time: '19:00' }, { value: 'Game 6:', time: '21:00' },]
-    },
-    {
-        value: 0.88, color: { to: "#00E5FF", from: "#0072FF" }, title: 'Дисциплина DOTA2', date: '10 Июня', variant: 3, games: [{ value: 'Game 5:', time: '19:00' }, { value: 'Game 6:', time: '21:00' },]
-    },
-]
-const BALL_POSITIONS_3 = [
-    {
-        value: 0.12, color: { to: "#00E5FF", from: "#00B193" }, title: "Дисциплина CS2", date: '11 Июня', variant: 3, games: [{ value: 'Game 7:', time: '19:00' },]
-    },
-    {
-        value: 0.38, color: { to: "#00E5FF", from: "#00B193" }, title: "Дисциплина DOTA2", date: '12 Июня', variant: 3, games: [{ value: 'Game 7:', time: '19:00' },]
-    },
-]
 
 const LINE_START = 0.22
 const LINE_END = 0.58
@@ -75,6 +38,7 @@ function ScheduleGroupText({
     times,
     variant,
     games,
+    timeLabel,
 }: {
     pillOnLeft: boolean
     opacity: MotionValue<number>
@@ -88,6 +52,7 @@ function ScheduleGroupText({
     times?: string[]
     variant: number
     games?: { value: string, time: string }[]
+    timeLabel: string
 }) {
     return (
         <motion.div
@@ -108,7 +73,7 @@ function ScheduleGroupText({
                             <h1 key={i} className="text-[24px] font-light"> {game.value}{games.length > 1 ? <br /> : <>&nbsp;</>} {game.time}</h1>
                         ))}
                     </> :
-                        <h1 className="text-[24px] font-light"> Время: &nbsp; {time ? time : <><br />{times?.join(' ')} </>}</h1>
+                        <h1 className="text-[24px] font-light"> {timeLabel} &nbsp; {time ? time : <><br />{times?.join(' ')} </>}</h1>
                     }
                 </div>
             </div>
@@ -137,6 +102,7 @@ function TimelineNode({
     times,
     variant,
     games,
+    timeLabel,
 }: {
     scrollYProgress: MotionValue<number>
     topFraction: number
@@ -149,6 +115,7 @@ function TimelineNode({
     times?: string[]
     variant: number
     games?: { value: string, time: string }[]
+    timeLabel: string
 }) {
     const [start, end] = BALL_REVEAL[index] ?? [0, 0.1]
     const pillOnLeft = index % 2 === 0
@@ -183,6 +150,7 @@ function TimelineNode({
                             times={times}
                             variant={variant}
                             games={games}
+                            timeLabel={timeLabel}
                         />
                     ) : null}
                     {pillOnLeft ? (
@@ -219,6 +187,7 @@ function TimelineNode({
                             times={times}
                             variant={variant}
                             games={games}
+                            timeLabel={timeLabel}
                         />
                     ) : null}
                 </div>
@@ -234,9 +203,114 @@ const TextHeader = ({ children }: { children: string }) => (
 // ✅ Исправлено: отдельные ref и scrollYProgress для каждой секции
 // ✅ Исправлено: отдельные lineHeight для каждой секции (LINE_H_3 теперь используется)
 export const SchedulePage = () => {
+    const t = useTranslations("schedule")
     const groupRef = useRef<HTMLDivElement>(null)
     const playoffRef = useRef<HTMLDivElement>(null)
     const thirdPlaceRef = useRef<HTMLDivElement>(null)
+
+    const ballPositions1 = useMemo(
+        () => [
+            {
+                value: 0.12,
+                color: { to: "#D1C4E9", from: "#651FFF" },
+                title: t("groupA"),
+                date: t("june3"),
+                time: "19:00",
+                variant: 1,
+            },
+            {
+                value: 0.38,
+                color: { to: "#D1C4E9", from: "#651FFF" },
+                title: t("groupB"),
+                date: t("june4"),
+                time: "19:00",
+                variant: 1,
+            },
+            {
+                value: 0.62,
+                color: { to: "#D1C4E9", from: "#651FFF" },
+                title: t("groupC"),
+                date: t("june5"),
+                time: "19:00",
+                variant: 1,
+            },
+            {
+                value: 0.88,
+                color: { to: "#D1C4E9", from: "#651FFF" },
+                title: t("groupD"),
+                date: t("june6"),
+                time: "19:00",
+                variant: 1,
+            },
+        ],
+        [t],
+    )
+
+    const ballPositions2 = useMemo(
+        () => [
+            {
+                value: 0.12,
+                color: { to: "#00E5FF", from: "#0072FF" },
+                title: t("disciplineCS2"),
+                date: t("june7"),
+                times: ["13:00", "15:00", "17:00", "19:00"],
+                variant: 2,
+            },
+            {
+                value: 0.38,
+                color: { to: "#00E5FF", from: "#0072FF" },
+                title: t("disciplineDOTA2"),
+                date: t("june8"),
+                times: ["13:00", "15:00", "17:00", "19:00"],
+                variant: 2,
+            },
+            {
+                value: 0.62,
+                color: { to: "#00E5FF", from: "#0072FF" },
+                title: t("disciplineCS2"),
+                date: t("june9"),
+                variant: 3,
+                games: [
+                    { value: t("game5"), time: "19:00" },
+                    { value: t("game6"), time: "21:00" },
+                ],
+            },
+            {
+                value: 0.88,
+                color: { to: "#00E5FF", from: "#0072FF" },
+                title: t("disciplineDOTA2"),
+                date: t("june10"),
+                variant: 3,
+                games: [
+                    { value: t("game5"), time: "19:00" },
+                    { value: t("game6"), time: "21:00" },
+                ],
+            },
+        ],
+        [t],
+    )
+
+    const ballPositions3 = useMemo(
+        () => [
+            {
+                value: 0.12,
+                color: { to: "#00E5FF", from: "#00B193" },
+                title: t("disciplineCS2"),
+                date: t("june11"),
+                variant: 3,
+                games: [{ value: t("game7"), time: "19:00" }],
+            },
+            {
+                value: 0.38,
+                color: { to: "#00E5FF", from: "#00B193" },
+                title: t("disciplineDOTA2"),
+                date: t("june12"),
+                variant: 3,
+                games: [{ value: t("game7"), time: "19:00" }],
+            },
+        ],
+        [t],
+    )
 
     const { scrollYProgress: groupProgress } = useScroll({
         target: groupRef,
@@ -272,13 +346,13 @@ export const SchedulePage = () => {
         <div className="flex min-h-[130vh] w-full flex-col items-center pt-[5vh]">
             <div className="flex w-full flex-col items-center gap-[40px]">
 
-                <TextHeader>ГРУППОВОЙ ЭТАП</TextHeader>
+                <TextHeader>{t("groupStage")}</TextHeader>
                 <div ref={groupRef} className="relative mx-auto mt-16 w-full px-4" style={{ height: LINE_H_1 }}>
                     <motion.div
                         style={{ height: lineHeight1 }}
                         className="absolute left-1/2 top-0 z-0 w-1 -translate-x-1/2 origin-top rounded-full bg-[#444444]"
                     />
-                    {BALL_POSITIONS_1.map((item, i) => (
+                    {ballPositions1.map((item, i) => (
                         <TimelineNode
                             key={i}
                             scrollYProgress={groupProgress}
@@ -290,17 +364,18 @@ export const SchedulePage = () => {
                             date={item.date}
                             time={item.time}
                             variant={item.variant}
+                            timeLabel={t("timeLabel")}
                         />
                     ))}
                 </div>
 
-                <TextHeader>PLAY-OFF</TextHeader>
+                <TextHeader>{t("playoff")}</TextHeader>
                 <div ref={playoffRef} className="relative mx-auto w-full px-4" style={{ height: LINE_H_2 }}>
                     <motion.div
                         style={{ height: lineHeight2 }}
                         className="absolute left-1/2 top-0 z-0 w-1 -translate-x-1/2 origin-top rounded-full bg-[#444444]"
                     />
-                    {BALL_POSITIONS_2.map((item, i) => (
+                    {ballPositions2.map((item, i) => (
                         <TimelineNode
                             key={i}
                             scrollYProgress={playoffProgress}
@@ -313,17 +388,18 @@ export const SchedulePage = () => {
                             times={item.times}
                             variant={item.variant}
                             games={item.games}
+                            timeLabel={t("timeLabel")}
                         />
                     ))}
                 </div>
                 <div className="h-30"></div>
-                <TextHeader>ИГРА ЗА ТРЕТЬЕ МЕСТО</TextHeader>
+                <TextHeader>{t("thirdPlace")}</TextHeader>
                 <div ref={thirdPlaceRef} className="relative mx-auto w-full px-4" style={{ height: LINE_H_3 }}>
                     <motion.div
                         style={{ height: lineHeight3 }}
                         className="absolute left-1/2 top-0 z-0 w-1 -translate-x-1/2 origin-top rounded-full bg-[#444444]"
                     />
-                    {BALL_POSITIONS_3.map((item, i) => (
+                    {ballPositions3.map((item, i) => (
                         <TimelineNode
                             key={i}
                             scrollYProgress={thirdProgress}
@@ -335,17 +411,18 @@ export const SchedulePage = () => {
                             date={item.date}
                             title={item.title}
                             games={item.games}
+                            timeLabel={t("timeLabel")}
                         />
                     ))}
                 </div>
 
 
                 <div className="w-[750px] h-[225px] rounded-[12px] border-[#FF7DFD] border-2 bg-white/20 flex flex-col items-center justify-center">
-                    <h1 className='text-white text-[56px] font-bold uppercase tracking-wide'>ФИНАЛ</h1>
+                    <h1 className='text-white text-[56px] font-bold uppercase tracking-wide'>{t("final")}</h1>
                     <h1
                         style={{
                             backgroundImage: `linear-gradient(to right, #FF00E5, #6d0462)`,
-                        }} className='text-[86px] font-bold uppercase tracking-wide bg-clip-text text-transparent'>14 Июня
+                        }} className='text-[86px] font-bold uppercase tracking-wide bg-clip-text text-transparent'>{t("finalDate")}
                     </h1>
                 </div>
             </div>
