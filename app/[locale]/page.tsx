@@ -6,6 +6,7 @@ import { BroadcastsPage } from "@/screens/broadcasts";
 import { FormatPage } from "@/screens/format";
 import { SponsorsPage } from "@/screens/sponsors";
 import { HashScrollHandler } from "@/utils/hooks/useHashScrollHandler";
+import { SchedulePage } from "@/screens/schedule";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <AboutPage />
       <BroadcastsPage />
       <FormatPage />
+      <SchedulePage />
       <SponsorsPage />
     </main>
   );

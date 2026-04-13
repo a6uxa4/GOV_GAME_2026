@@ -2,8 +2,10 @@
 
 import { useSectionInView } from '@/utils/hooks/useSectionInView';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 export const BroadcastsPage = () => {
+  const t = useTranslations('broadcasts');
   const { ref } = useSectionInView("broadcasts", 0.5);
   return (
     <section id="broadcasts" ref={ref} className="scroll-mt-28 w-full h-[1450px] flex items-center justify-center relative">
@@ -36,7 +38,7 @@ export const BroadcastsPage = () => {
         />
       </div>
       <p className='text-center text-lg font-light tracking-wide absolute bottom-[260px] max-w-[700px]'>
-        Смотрите прямые трансляции игр по двум дисциплинам, отслеживая по турнирной сетке своих фаворитов на Киберспортивном турнире среди государственных IT-организаций Кыргызстана
+        {t('description')}
       </p>
       <div className='w-full border-t border-white flex gap-6 items-center justify-center absolute bottom-10 pt-6'>
         {Array.from({ length: 5 }).map((_, index) => (

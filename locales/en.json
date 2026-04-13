@@ -29,6 +29,9 @@
       "seconds": "Seconds"
     }
   },
+  "broadcasts": {
+    "description": "Watch live match broadcasts of both disciplines and follow your favorites on the tournament bracket at the esports tournament for government IT organizations of Kyrgyzstan."
+  },
   "format": {
     "whoCanParticipate": "Who can participate?",
     "periodOfConduct": "Period of conduct:",
