@@ -23,4 +23,8 @@ export const NAV_LINKS = [
     name: "contacts",
     hash: "/#contacts",
   },
+  {
+    name: "sponsors",
+    hash: "/#sponsors",
+  },
 ] as const;

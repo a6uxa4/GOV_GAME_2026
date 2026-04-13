@@ -19,6 +19,20 @@
     "answer3": "Round-robin или GSL bo1",
     "answer4": "The top two teams from each group"
   },
+  "contacts": {
+    "contacts": "Contacts",
+    "locationLabel": "Venue:",
+    "locationValue": "Technopark, Maxim Gorky St., 1/2",
+    "mailLabel": "Mail:",
+    "mailValue": "mail@govgames.gov.kg",
+    "phoneLabel": "Phone:",
+    "phoneValue": "(312)-12 34 56"
+  },
+   "sponsors": {
+    "sponsors": "Sponsors",
+    "generalSponsor": "General game sponsor",
+    "officialPartner": "Official game partner"
+   },
   "about": {
     "title": "Esports tournament for government IT organizations of Kyrgyzstan",
     "description": "The main goal of the event is to promote esports among staff of government IT institutions, and to foster team spirit, strategic thinking, and effective collaboration within teams.",
